@@ -6,16 +6,17 @@ def main():
     print(letter_count(file_contents))
     print(split_the_whitespace(file_contents))
 
-def letter_count(book: str) -> str:
+
+def letter_count(book: str) -> dict:
     lowered_book = book.lower()
     final_dict = dict()
     for character in lowered_book:
-        if character.isalpha() is True:
+        if character.isalpha():
             final_dict[character] = final_dict.get(character, 0) + 1
     return final_dict
 
-def split_the_whitespace(bookington: str) -> str: 
-    words = bookington.split()
+def split_the_whitespace(book: str) -> int: 
+    words = book.split()
     return len(words)
 
 if __name__ == "__main__":
