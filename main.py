@@ -7,6 +7,10 @@ def main():
     print(split_the_whitespace(file_contents))
     pre_sort = make_pretty(letters)
 
+
+def sort_key(dict):
+    pass
+
 def letter_count(book: str) -> dict:
     lowered_book = book.lower()
     final_dict = dict()
@@ -23,8 +27,8 @@ def make_pretty(data: dict):
     dict_list = []
     for name in data:
         ammount = data[name]
-        dict_list.append({name: ammount})
-    return dict_list
+        dict_list.append({'name': name, 'num': ammount})
+    print( dict_list)
 
 if __name__ == "__main__":
     main()
