@@ -3,9 +3,9 @@ with open("books/frankenstein.txt") as f:
 
 def main():
     print(file_contents)
-    print(letter_count(file_contents))
+    letters = letter_count(file_contents)
     print(split_the_whitespace(file_contents))
-
+    pre_sort = make_pretty(letters)
 
 def letter_count(book: str) -> dict:
     lowered_book = book.lower()
@@ -18,6 +18,13 @@ def letter_count(book: str) -> dict:
 def split_the_whitespace(book: str) -> int: 
     words = book.split()
     return len(words)
+
+def make_pretty(data: dict):
+    dict_list = []
+    for name in data:
+        ammount = data[name]
+        dict_list.append({name: ammount})
+    return dict_list
 
 if __name__ == "__main__":
     main()
