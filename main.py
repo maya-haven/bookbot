@@ -4,9 +4,12 @@ with open("books/frankenstein.txt") as f:
 def main():
     print(file_contents)
     letters = letter_count(file_contents)
-    print(split_the_whitespace(file_contents))
+    words = word_count(file_contents)
+    print(f'There are {words} words in this book')
     pre_sort = make_pretty(letters)
-    print(pre_sort)
+    pre_sort.sort(reverse=True, key=sort_key)
+    for dictionary in pre_sort:
+        print(f'The {dictionary['name']} character was found {dictionary['num']} times :3')
 
 def sort_key(dict):
     return dict['num']
@@ -19,7 +22,7 @@ def letter_count(book: str) -> dict:
             final_dict[character] = final_dict.get(character, 0) + 1
     return final_dict
 
-def split_the_whitespace(book: str) -> int: 
+def word_count(book: str) -> int: 
     words = book.split()
     return len(words)
 
